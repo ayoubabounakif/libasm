@@ -1,6 +1,3 @@
-nasm -f elf64 -o $1.o $1.s
-gcc main.c $1.o
-rm -rf $1
+gcc main.c *.o
 ./a.out | cat -e
-rm -rf $1.o
-rm -rf ./a.out
+rm -rf *.o ./a.out compile .Makefile.swp .compile.sh.swp
