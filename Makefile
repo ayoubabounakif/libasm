@@ -2,15 +2,15 @@ NAME = compile
 
 NASM = nasm
 
-NASMFLAGS = -f elf64
+NASMFLAGS = -f macho64
 
-SRCS = ft_write.s ft_strlen.s
+SRCS = ft_write.s ft_read.s ft_strlen.s ft_strcpy.s ft_strcmp.s
 
 OBJS = $(SRCS:.s=.o)
 
-all:	$(NAME)
+all: $(NAME)
 
-$(NAME):	$(OBJS)
+$(NAME): $(OBJS)
 
 %.o: %.s
 	$(NASM) $(NASMFLAGS) -o $@ $<
