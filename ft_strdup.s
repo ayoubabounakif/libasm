@@ -1,6 +1,15 @@
 ; DESCRIPTION:
 ; --> man strdup
 
+; The Stack
+; "The Stack" is a frequently-used area of memory designed for functions to use as temporary storage. 
+; This is normally where you store values while calling another function: you can't store values in the scratch registers, because the function could change them.  
+
+; The easiest and most common way to use the stack is with the dedicated "push" and "pop" instructions.
+
+; "push" stores a constant or 64-bit register out onto the stack.  The 64-bit registers are the ones like "rax" or "r8", not the 32-bit registers like "eax" or "r8d".  ("push eax" gives an error "instruction not supported in 64-bit mode"; use "push rax" instead.)
+; "pop" retrieves the last value pushed from the stack.  Everything you push, you MUST pop again at some point afterwards, or your code will crash almost immediately!
+
 segment	.text
 	global  _ft_strdup
     extern	_ft_strlen
