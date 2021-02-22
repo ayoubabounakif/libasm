@@ -1,3 +1,6 @@
+; DESCRIPTION:
+; --> man strcpy
+
 segment	.text
 	global	_ft_strcpy
 

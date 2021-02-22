@@ -1,3 +1,6 @@
+; DESCRIPTION:
+; --> man strlen
+
 segment	.text
 	global  _ft_strlen
 
@@ -15,6 +18,9 @@ _loop:
 
 	jmp _increment			; else increment the array to the next index and the counter too
 	jmp	_loop				; go into the loop again until you find the null byte
+
+; RETURN VALUE:
+; The strlen() function returns the number of characters that precede the terminating NUL character.
 
 _done:
 	ret
