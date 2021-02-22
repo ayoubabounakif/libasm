@@ -15,7 +15,9 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/uio.h>
-#include <errno.h>
+#include <sys/errno.h>
+
+# define RESET 2147483647
 
 ssize_t	ft_write(int fd, const void *buf, size_t count);
 ssize_t	ft_read(int fildes, void *buf, size_t nbyte);
@@ -25,11 +27,12 @@ int		ft_strcmp(const char *s1, const char *s2);
 
 int		main(void)
 {
-	char	s[20] = "A";
-	char	d[15] = "Ayoub";
+	char	s[1024] = "wnwe;'qw.'.eqw;'.eqw;'.e;'.qw";
+	char	d[1024] = "wnwe;'qw.e';qw.e;.qw;'.eqw;'.eqw;'.e;'.qw";
 	int		len;
 	int		n;
 	int		i;
+	int		a, b;
 
 	// len = ft_strlen(s);
 
@@ -40,8 +43,15 @@ int		main(void)
 
 	i = ft_strcmp(s, d);
 	printf("%d\n", i);
+	// n = strcmp(s, d);
+	// printf("%d\n", n);
 
-	n = strcmp(s, d);
-	printf("%d\n", n);
-	return (0);
+	// ERRNO test
+    // a = write(FOPEN_MAX + 1, "abcdefghijklmnopqrstuvwxyz\n", 27);
+	// perror("sys write errno");
+	// errno = RESET;
+    // b = ft_write(FOPEN_MAX + 1, "abcdefghijklmnopqrstuvwxyz\n", 27);
+	// perror("ft_write errno");
+    // printf("sys write = %d\nft_write = %d\n", a, b);
+	// return (0);
 }

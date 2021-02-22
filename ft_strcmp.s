@@ -12,6 +12,12 @@ _ft_strcmp:
 _increment:
 	inc		rdi					; increment rdi
 	inc		rsi					; increment rsi
+    jmp     _recursion
+
+_recursion:
+    cmp		al, bl				; if al == bl -> *s1 == *s2
+    je		_ft_strcmp			; use recursion
+    jne		_done				; if al != bl -> *s1 != *s2, jump to _done
 
 _cmp_loop:
 	mov		al, byte [rdi]		; move the byte on rdi to al (8 of rax) (tmp)
@@ -21,9 +27,6 @@ _cmp_loop:
     cmp		bl, 0				; compare bl to null byte
     je		_done				; if null byte, jump to _done
 	jmp		_increment			; else just increment
-    cmp		al, bl				; if al == bl -> *s1 == *s2
-    je		_ft_strcmp			; use recursion
-    jne		_done				; if al != bl -> *s1 != *s2, jump to _done
 
 ; RETURN VALUE:
 ; The strcmp() and strncmp() functions return an integer greater than, equal to, or less than 0,
