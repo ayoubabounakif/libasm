@@ -29,40 +29,44 @@ char	*ft_strdup(const char *s1);
 
 int		main(void)
 {
-	char	*s = "wnwe;'qw.'.eqw;'.eqw;'.e;'.qw";
-	char	*d = "wnwe;'qw.e';qw.e;.qw;'.eqw;'.eqw;'.e;'.qw";
+	char	src[1024] = "MAMA AFRICA";
+	char	dst[1024] = "420";
 
-	char	*rdi = "Ayoub";
-	char	*rsi = "";
+	char	*rdi = "aabounak";
+	char	*rsi = "oel-ouar";
+
 	int		len;
-	int		n;
-	int		i;
-	int		a, b;
+	int		n, i;
+	int		fd, fd_2;
 
-	// Strlen and write
-	// len = ft_strlen(s);
-	// ft_write(1, &s, len);
+	// printf("------ FT_STRLEN & WRITE ------\n");
+	// len = ft_strlen(src);
+	// ft_write(1, &src, len);
 	// write(1, "\n", 1);
-	// write(1, &s, len);
+	// write(1, &src, len);
 	// write(1, "\n", 1);
+	// printf("-------------------------------\n");
 
-	// Strcmp
-	// i = ft_strcmp(s, d);
-	// printf("%d\n", i);
-	// n = strcmp(s, d);
-	// printf("%d\n", n);
+	printf("------ FT_STRCMP ------\n");
+	i = ft_strcmp(src, dst);
+	printf("ft_strcmp = %d\n", i);
+	n = strcmp(src, dst);
+	printf("sys strcmp =%d\n", n);
+	printf("-----------------------\n");
 
 
-	// ERRNO test
-    // a = write(FOPEN_MAX + 1, "abcdefghijklmnopqrstuvwxyz\n", 27);
-	// perror("sys write errno");
-	// errno = RESET;
-    // b = ft_write(FOPEN_MAX + 1, "abcdefghijklmnopqrstuvwxyz\n", 27);
-	// perror("ft_write errno");
-    // printf("sys write = %d\nft_write = %d\n", a, b);
+	printf("------ ERRNO TEST -----\n");
+    fd = write(FOPEN_MAX + 1, "abcdefghijklmnopqrstuvwxyz\n", 27);
+	perror("sys write errno");
+	errno = RESET;
+    fd_2 = ft_write(FOPEN_MAX + 1, "abcdefghijklmnopqrstuvwxyz\n", 27);
+	perror("ft_write errno");
+    printf("sys write = %d\nft_write = %d\n", fd, fd_2);
+	printf("-----------------------\n");
 
-	// strdup
+	printf("------ FT_STRDUP ------\n");
 	rsi = ft_strdup(rdi);
-	printf("ft_strdup = rdi -> %s || rsi -> %s\n", rdi, rsi);
+	printf("ft_strdup = %s\nsys strdup = %s\n", rdi, rsi);
+	printf("-----------------------\n");
 	return (0);
 }
