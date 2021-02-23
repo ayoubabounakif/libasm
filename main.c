@@ -32,8 +32,8 @@ int		main(void)
 	char	src[1024] = "MAMA AFRICA";
 	char	dst[1024] = "420";
 
-	char	*rdi = "aabounak";
-	char	*rsi = "oel-ouar";
+	char	*rdi = "aabounakWEJKQWEQWKLL/////*WEJKQWEQWKLL/////*";
+	char	*rsi = "JKaabounakEWKaabounakJQWEJKQWEQWKLL/////*//*+65+5+55+6";
 
 	int		len;
 	int		n, i;

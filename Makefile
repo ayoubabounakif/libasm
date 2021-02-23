@@ -19,7 +19,6 @@ $(NAME): $(OBJS)
 
 %.o: %.s
 	$(NASM) $(NASMFLAGS) -o $@ $<
-	rm -rf $(NAME)
 
 clean:
 	rm -rf $(OBJS)

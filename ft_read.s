@@ -16,7 +16,7 @@ _error:
     mov		[rax], r15		; put errno in return value of __error (pointer to errno)
 	jmp		_done
 
-_done
+_done:
 	mov		rax, -1
 	ret
 
